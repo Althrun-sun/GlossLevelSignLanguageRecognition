@@ -88,7 +88,7 @@ def compute_top_n_accuracy(truths, preds, n):
 if __name__ == '__main__':
 
     # change root and subset accordingly.
-    root = '/media/anudisk/github/WLASL'
+    root = '/workspace/WLASL'
     trained_on = 'asl2000'
 
     checkpoint = 'ckpt.pth'
@@ -97,7 +97,7 @@ if __name__ == '__main__':
     # test_on_split_file = os.path.join(root, 'data/splits-with-dialect-annotated/{}.json'.format(tested_on))
 
     pose_data_root = os.path.join(root, 'data/pose_per_individual_videos')
-    config_file = os.path.join(root, 'code/TGCN/archived/{}/{}.ini'.format(trained_on, trained_on))
+    config_file = os.path.join(root, 'code/TGCN/archived/asl2000/asl2000.ini')
     configs = Config(config_file)
 
     num_samples = configs.num_samples

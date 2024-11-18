@@ -6,6 +6,29 @@ class Config:
         config = configparser.ConfigParser()
         config.read(config_path)
 
+        import os
+        # Check if the file exists
+        if not os.path.exists(config_path):
+            raise FileNotFoundError(f"Configuration file not found at: {config_path}")
+        
+        # Read the configuration file
+        config.read(config_path)
+        
+        # Debug: Print working directory and config file path
+        print('Current working directory:', os.getcwd())
+        print('Config file path:', config_path)
+
+        # Debug: Print all sections and their respective options
+        if config.sections():
+            print("Successfully read the configuration file. Here are the contents:")
+            for section in config.sections():
+                print(f"Section: {section}")
+                for key, value in config[section].items():
+                    print(f"  {key}: {value}")
+        else:
+            print("No sections found in the configuration file. Check the file content.")
+
+
         # training
         train_config = config['TRAIN']
         self.batch_size = int(train_config['BATCH_SIZE'])
@@ -32,5 +55,5 @@ class Config:
 
 
 if __name__ == '__main__':
-    config_path = '/home/dxli/workspace/nslt/code/VGG-GRU/configs/test.ini'
+    config_path = 'configs/asl2000.ini'
     print(str(Config(config_path)))

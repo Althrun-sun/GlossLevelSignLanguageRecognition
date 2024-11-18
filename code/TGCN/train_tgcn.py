@@ -108,7 +108,7 @@ def run(split_file, pose_data_root, configs, save_model_to=None):
 
 
 if __name__ == "__main__":
-    root = '/media/anudisk/github/WLASL'
+    root = '/workspace/WLASL'
 
     subset = 'asl100'
 
