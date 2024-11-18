@@ -8,7 +8,9 @@ with open(file_path) as ipf:
 cnt_train = 0
 cnt_val = 0
 cnt_test = 0
-
+gloss_id=0
+instance_id=0
+print(content[gloss_id]['instances'][instance_id]['video_id'])
 for ent in content:
     gloss = ent['gloss']
 
